@@ -1,61 +1,53 @@
-![](https://i.imgur.com/xG74tOh.png)
+# Calculadora de Frete
 
-# Exercício 01
-
-## Cálculo de frete
-
-Vamos criar uma API para cálcular o frete de um produto.
-
-A nossa API deverá possuir três rotas e todas utilizarão o método **GET**.
-
-A rota **GET** `/produtos` deverá fazer a listagem dos produtos que estão listados no arquivo `produtos.js`, na pasta `bancodedados`.
-
-A rota **GET** `/produtos/:idProduto` deverá fazer o detalhamento de um produto através do `id`, passado como parâmetro na rota.
-
-A rota **GET** `/produtos/:idProduto/frete/:cep` receberá dois parâmetros de rota. O primeiro `idProduto` receberá o id do produto que será calculado o frete, e o segundo `cep` receberá o cep (sem pontuação) para que seja encontrado o estado referente ao cep informado.
-
-Esta rota deverá calcular o frete do produto de acordo com as regras abaixo.
-
-Para encontrar o estado através do cep informado, usaremos a função `getStateFromZipcode`, da biblioteca `utils-playground`, que pode ser baixada no **NPM**, e pode ser encontrado no link abaixo:
-
-https://www.npmjs.com/package/utils-playground
+<img src="https://i.pinimg.com/originals/a6/0b/57/a60b57a41f975f1e509348e5a4b218bc.png" width="200px" align="right" >
+  <p align="left">
+Este projeto é uma calculadora de frete desenvolvida com Express.js, JavaScript, Insomnia para testes de API e Nodemon para facilitar o desenvolvimento contínuo. A calculadora de frete é uma ferramenta essencial para empresas de logística e comércio eletrônico, permitindo calcular custos de envio de forma rápida e eficiente.
+  </p>
 
 
-**Regras para cálculo de frete**
+## :man_mechanic: Linguagens e Ferramentas
 
--   O valor padrão do frete será de `12%` do valor do produto
--   Para os estados `BA, SE, AL, PE e PB` o valor do frete será de `10%`
--   Para os estados `SP e RJ` o valor do frete será de `15%`
+![Skills](https://skillicons.dev/icons?i=nodejs,js,express)
 
-**Exemplo:**
+## :ladder: Fucionalidades do Projeto
 
-Caso chamado a rota **GET** `/produtos/1/frete/41256250`, a resposta deverá ser:
+- [x] Cálculo de Frete
+- [x] Acesso Fácil
+- [x] Testes Rápidos
+- [x] Desenvolvimento Contínuo
 
-```json
-{
-    "produto": {
-        "id": 1,
-        "nome": "Teclado mecânico Keychron K2",
-        "valor": 100000
-    },
-    "estado": "BA",
-    "frete": 10000
-}
+## :facepunch: Como Usar
+
+- Clone o repositório para sua máquina local.
+- No terminal, navegue até o diretório do projeto e execute npm install para instalar as dependências.
+- Inicie o servidor usando npm run dev. O Nodemon garantirá que o servidor seja reiniciado automaticamente após cada alteração no código.
+- Utilize o Insomnia ou qualquer outra ferramenta de teste de API para enviar requisições para os endpoints fornecidos pela API.
+
+## :triangular_flag_on_post: Contribua com o projeto
+
+- Realize o Fork
+- Faça as modificações necessárias
+- Realize a Pull Request (PR)
+
+## :computer: Rodando o Projeto
+
+```shell
+# 1. Clone o projeto
+
+git clone <urlProjeto>
+
+# 2. Instale as dependências
+
+npm install
+
+# 3. Execute a API
+
+npm run dev
 ```
 
-**Observações:**
+## :sassy_man: Endpoints
 
--   É necessário se atentar para o uso do **await** quando uma função utiliza **promises**.
--   Todas as rotas deverão seguir os padrões **REST** o mais fielmente possível.
--   Todas as requisições deverão ser **assíncronas**.
-
----
-
-Preencha a checklist para finalizar o exercício:
-
--   [ ] Resolver o exercício
--   [ ] Adicionar as mudanças aos commits (`git add .` para adicionar todos os arquivos, ou `git add nome_do_arquivo` para adicionar um arquivo específico)
--   [ ] Commitar a cada mudança significativa ou na finalização do exercício (`git commit -m "Mensagem do commit"`)
--   [ ] Pushar os commits na sua branch na origem (`git push origin nome-da-branch`)
-
-###### tags: `módulo 2` `exercícios` `lógica` `nodeJS`
+- GET /produtos - Lista todos os produtos
+- GET /produtos/:id - Buscar o Produto pelo seu ID
+- GET /produtos/:id/frete/:cep- Calcula o valor do frete através do CEP informado
